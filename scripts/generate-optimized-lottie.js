@@ -15,10 +15,11 @@ function toPascalCase(str) {
     .join('');
 }
 
-// 경량화된 React 컴포넌트 템플릿 생성 함수
+// 패키지 포함 React 컴포넌트 템플릿 생성 함수
 function createOptimizedComponentTemplate(componentName, jsonFileName) {
   return `import React from 'react';
 import Lottie from 'lottie-react';
+import animationData from '../../assets/lottie/${jsonFileName}';
 
 export interface ${componentName}Props {
   className?: string;
@@ -42,39 +43,11 @@ const ${componentName}: React.FC<${componentName}Props> = ({
   style,
   ...props
 }) => {
-  const [animationData, setAnimationData] = React.useState<any>(null);
-
-  React.useEffect(() => {
-    // 동적으로 JSON 파일 로드
-    fetch(\`../../assets/lottie/${jsonFileName}\`)
-      .then(response => response.json())
-      .then(data => setAnimationData(data))
-      .catch(err => console.error('Lottie 로딩 실패:', err));
-  }, []);
-
   const lottieStyle = {
     width: width || '100%',
     height: height || '100%',
     ...style,
   };
-
-  if (!animationData) {
-    return (
-      <div 
-        className={className}
-        style={{
-          ...lottieStyle,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: '#f0f0f0',
-          color: '#666'
-        }}
-      >
-        Loading...
-      </div>
-    );
-  }
 
   return (
     <Lottie
