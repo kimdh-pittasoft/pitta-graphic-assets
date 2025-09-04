@@ -2,6 +2,7 @@ export { default as AosWifiConnectDark } from './AosWifiConnectDark';
 export { default as AosWifiConnectLight } from './AosWifiConnectLight';
 export { default as AosWifiDisconnectionDark } from './AosWifiDisconnectionDark';
 export { default as AosWifiDisconnectionLight } from './AosWifiDisconnectionLight';
+export { default as BatteryConnectedDarkBlackvue } from './BatteryConnectedDarkBlackvue';
 export { default as BatteryConnectedDarkFleeta } from './BatteryConnectedDarkFleeta';
 export { default as BatteryConnectedLightBlackvue } from './BatteryConnectedLightBlackvue';
 export { default as BatteryConnectedLightFleeta } from './BatteryConnectedLightFleeta';
