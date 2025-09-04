@@ -1,6 +1,6 @@
 {
   "name": "@pittaofficial/pitta-graphic-assets",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Pitta Graphic Assets - Comprehensive collection of images and Lottie animations with React components. Optimized for modern web development.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
