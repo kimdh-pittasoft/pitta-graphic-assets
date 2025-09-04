@@ -4,9 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 // 디렉토리 경로 설정
-const jsonDir = path.join(__dirname, '..', 'lotties-json');
+const jsonDir = path.join(__dirname, '..', 'assets', 'lottie');
 const outputDir = path.join(__dirname, '..', 'components', 'lottie');
-const assetsDir = path.join(__dirname, '..', 'assets', 'lottie');
 
 // 파일명을 PascalCase로 변환하는 함수
 function toPascalCase(str) {
@@ -47,8 +46,9 @@ const ${componentName}: React.FC<${componentName}Props> = ({
 
   React.useEffect(() => {
     // 동적으로 JSON 파일 로드
-    import(\`../../assets/lottie/${jsonFileName}\`)
-      .then(module => setAnimationData(module.default))
+    fetch(\`../../assets/lottie/${jsonFileName}\`)
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
       .catch(err => console.error('Lottie 로딩 실패:', err));
   }, []);
 
@@ -110,10 +110,7 @@ function generateOptimizedLottieComponents() {
       fs.mkdirSync(outputDir, { recursive: true });
     }
 
-    // assets/lottie 디렉토리 생성
-    if (!fs.existsSync(assetsDir)) {
-      fs.mkdirSync(assetsDir, { recursive: true });
-    }
+    // assets/lottie 디렉토리는 이미 최신 JSON 파일들이 있음
 
     // JSON 파일들 처리
     const jsonFiles = fs.readdirSync(jsonDir).filter(file => file.endsWith('.json'));
@@ -130,10 +127,7 @@ function generateOptimizedLottieComponents() {
       const componentFile = `${componentName}.tsx`;
       const componentPath = path.join(outputDir, componentFile);
 
-      // JSON 파일을 assets 폴더로 복사
-      const sourcePath = path.join(jsonDir, jsonFile);
-      const targetPath = path.join(assetsDir, jsonFile);
-      fs.copyFileSync(sourcePath, targetPath);
+      // assets/lottie에 이미 최신 JSON 파일이 있으므로 복사 불필요
 
       // 경량화된 React 컴포넌트 생성
       const componentContent = createOptimizedComponentTemplate(componentName, jsonFile);

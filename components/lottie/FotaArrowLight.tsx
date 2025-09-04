@@ -27,8 +27,9 @@ const FotaArrowLight: React.FC<FotaArrowLightProps> = ({
 
   React.useEffect(() => {
     // 동적으로 JSON 파일 로드
-    import(`../../assets/lottie/fota-arrow-light.json`)
-      .then(module => setAnimationData(module.default))
+    fetch(`../../assets/lottie/fota-arrow-light.json`)
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
       .catch(err => console.error('Lottie 로딩 실패:', err));
   }, []);
 

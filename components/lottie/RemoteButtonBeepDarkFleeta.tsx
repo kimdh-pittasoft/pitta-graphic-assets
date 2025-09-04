@@ -27,8 +27,9 @@ const RemoteButtonBeepDarkFleeta: React.FC<RemoteButtonBeepDarkFleetaProps> = ({
 
   React.useEffect(() => {
     // 동적으로 JSON 파일 로드
-    import(`../../assets/lottie/remote-button-beep-dark-fleeta.json`)
-      .then(module => setAnimationData(module.default))
+    fetch(`../../assets/lottie/remote-button-beep-dark-fleeta.json`)
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
       .catch(err => console.error('Lottie 로딩 실패:', err));
   }, []);
 

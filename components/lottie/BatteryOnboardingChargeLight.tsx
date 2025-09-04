@@ -27,8 +27,9 @@ const BatteryOnboardingChargeLight: React.FC<BatteryOnboardingChargeLightProps> 
 
   React.useEffect(() => {
     // 동적으로 JSON 파일 로드
-    import(`../../assets/lottie/battery-onboarding-Charge-light.json`)
-      .then(module => setAnimationData(module.default))
+    fetch(`../../assets/lottie/battery-onboarding-Charge-light.json`)
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
       .catch(err => console.error('Lottie 로딩 실패:', err));
   }, []);
 

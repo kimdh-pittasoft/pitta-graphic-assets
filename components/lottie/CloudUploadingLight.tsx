@@ -27,8 +27,9 @@ const CloudUploadingLight: React.FC<CloudUploadingLightProps> = ({
 
   React.useEffect(() => {
     // 동적으로 JSON 파일 로드
-    import(`../../assets/lottie/cloud-uploading-light.json`)
-      .then(module => setAnimationData(module.default))
+    fetch(`../../assets/lottie/cloud-uploading-light.json`)
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
       .catch(err => console.error('Lottie 로딩 실패:', err));
   }, []);
 
