@@ -1,6 +1,6 @@
 {
   "name": "@pittaofficial/pitta-graphic-assets",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Pitta Graphic Assets - Comprehensive collection of images and Lottie animations with React components. Optimized for modern web development.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kimdh-pittasoft/pitta-icon-assets.git"
+    "url": "git+https://github.com/kimdh-pittasoft/pitta-graphic-assets.git"
   },
   "homepage": "https://web-modules-alpha.blackvuecloud.com/storybook/index.html",
   "scripts": {
