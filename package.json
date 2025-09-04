@@ -33,6 +33,7 @@
     "build": "npm run generate-lottie && node scripts/update-exports.js && rollup -c",
     "generate-lottie": "node scripts/generate-optimized-lottie.js",
     "generate-images": "node scripts/generate-image-components.js",
+    "analyze-metadata": "node scripts/analyze-lottie-metadata.js",
     "prepare": "npm run build",
     "dev": "rollup -c -w"
   },
