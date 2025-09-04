@@ -36,6 +36,7 @@ dist-ssr
 .env.production.local
 
 
+
 # Supabase
 .branches
 .temp
@@ -43,4 +44,5 @@ dist-ssr
 node_modules/
 dist/
 .vscode/
+
 generate-lottie-components.js

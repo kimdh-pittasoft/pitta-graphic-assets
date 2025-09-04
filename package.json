@@ -1,7 +1,7 @@
 {
-  "name": "@pittaofficial/pitta-icon-assets",
-  "version": "0.1.31",
-  "description": "Pitta Icon Assets - 249 React SVG Icon Components with AI-friendly categorization. Includes user, action, navigation, media, cloud, settings, and dashboard icons.",
+  "name": "@pittaofficial/pitta-graphic-assets",
+  "version": "0.1.1",
+  "description": "Pitta Graphic Assets - Comprehensive collection of images and Lottie animations with React components. Optimized for modern web development.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -10,16 +10,16 @@
   ],
   "keywords": [
     "react",
-    "icons",
-    "svg",
+    "images",
+    "lottie",
+    "animations",
     "components",
     "platform",
     "ui",
     "design-system",
-    "icon-library",
+    "graphic-assets",
     "react-components",
-    "svg-icons",
-    "material-design",
+    "lottie-animations",
     "user-interface"
   ],
   "author": "Pitta",
@@ -30,10 +30,9 @@
   },
   "homepage": "https://web-modules-alpha.blackvuecloud.com/storybook/index.html",
   "scripts": {
-    "build": "npm run generate-exports && npm run generate-metadata && npm run extract-svgs && rollup -c",
-    "generate-exports": "node scripts/generate-exports.js",
-    "generate-metadata": "node scripts/generate-metadata.js",
-    "extract-svgs": "node scripts/extract-svgs.js",
+    "build": "npm run generate-lottie && node scripts/update-exports.js && rollup -c",
+    "generate-lottie": "node scripts/generate-optimized-lottie.js",
+    "generate-images": "node scripts/generate-image-components.js",
     "prepare": "npm run build",
     "dev": "rollup -c -w"
   },
@@ -42,11 +41,15 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.0.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/react": "^18.0.0",
     "rollup": "^3.0.0",
-    "typescript": "^5.0.0",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "lottie-react": "^2.4.1"
   }
 }

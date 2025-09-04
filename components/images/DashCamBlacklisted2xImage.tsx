@@ -1,0 +1,43 @@
+import React from 'react';
+
+export interface DashCamBlacklisted2xImageProps {
+  className?: string;
+  width?: number | string;
+  height?: number | string;
+  alt?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
+  onLoad?: () => void;
+  onError?: () => void;
+}
+
+const imageData = "data:image/png;base64,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";
+
+export const DashCamBlacklisted2xImage: React.FC<DashCamBlacklisted2xImageProps> = ({
+  className,
+  width,
+  height,
+  alt = "Dash Cam - Blacklisted@2x.png",
+  style,
+  onClick,
+  onLoad,
+  onError,
+  ...props
+}) => {
+  return (
+    <img
+      src={imageData}
+      alt={alt}
+      className={className}
+      width={width}
+      height={height}
+      style={style}
+      onClick={onClick}
+      onLoad={onLoad}
+      onError={onError}
+      {...props}
+    />
+  );
+};
+
+export default DashCamBlacklisted2xImage;
